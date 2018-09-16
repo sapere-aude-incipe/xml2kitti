@@ -12,7 +12,7 @@ class XMLReader:
         self.path = path
         self.content = file.read()
         self.root = ET.fromstring(self.content)
-        self.template = "{name} 0.00 0 0.0 {xmin}.00 {ymin}.00 {xmax}.00 {ymax}.00 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0"
+        self.template = "{name} 0.00 0 0.0 {xmin}.00 {ymin}.00 {xmax}.00 {ymax}.00 0.0 0.0 0.0 0.0 0.0 0.0 0.0"
 
     def get_filename(self):
         return splitext(basename(self.path))[0]
@@ -48,7 +48,7 @@ class XMLReader:
         for object in objects[:-1]:
             file.write(self.fill_template(object) + "\n")
         # Write last without '\n'
-        file.write(self.fill_template(object))
+        file.write(self.fill_template(objects[-1]))
 
         file.close()
 
